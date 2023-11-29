@@ -1,0 +1,302 @@
+body {
+    position: relative;
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: scroll; /* Alteração para adicionar barra de rolagem vertical */
+  }
+  
+      /* Background da página */
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('2.jpeg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 0.8;
+        z-index: -1;
+      }
+  
+      /* Sobreposição escura */
+      body::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+        padding: 20px;
+      }
+  
+      .landing-page {
+    text-align: left;
+    background-color: #ffffff;
+    padding: 24px 10px; /* Reduzir o padding lateral para 10px */
+    border: 2px solid #000000;
+    border-radius: 0;
+    max-width: 572px; /* Reduzir o max-width para 572px */
+    margin: 0; /* Centralizar a box */
+  }
+  
+  .text-center {
+    text-align: center; /* Centralizar o texto */
+  }
+  
+  .landing-buttons button {
+      color: #fff;
+      padding: 10px 20px; /* Tamanho base para todos os botões */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 18px;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+  
+    .landing-buttons button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+  
+    .modal {
+      animation: fadeIn 0.3s ease-in-out; /* Efeito de fade in */
+    }
+  
+    .popup-container {
+      position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    
+  }
+  
+  .popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+   
+  }
+  
+      header, footer {
+        width: 100%;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #343a40;
+      }
+  
+      header h1 {
+        font-size: 24px;
+        margin: 0;
+      }
+  
+      footer p {
+        font-size: 14px;
+        margin: 0;
+      }
+  
+      h2 {
+        color: black;
+        font-weight: bold;
+        font-family: Calibri, sans-serif;
+      }
+  
+      .landing-page button {
+    background-color: #ffffff; /* Cor de fundo branca */
+    color: #000000; /* Cor do texto preto */
+  }
+    .landing-page .btn {
+    background-color: #000;
+    color: #fff;
+  }
+  
+    .landing-page .btn:hover {
+    background-color: rgba(128, 128, 128, 0.3); /* Cinza com transparência */
+    color: #000; /* Cor do texto */
+  }
+  
+  .landing-page .btn.active {
+    background-color: transparent !important; /* Remover a cor de fundo */
+    color: #000 !important; /* Manter o texto preto */
+    border: none !important; /* Remover a borda */
+  }
+  
+  /* Adicione estas classes para os botões específicos */
+  .landing-page .admin-button.selected,
+  .landing-page .agende-button.selected {
+    background-color: #e0e0e0; /* Cinza claro desejado */
+    color: #000; /* Cor do texto preto */
+    border: 2px solid black; /* Adicionar borda preta */
+  }
+  
+  /* Ajuste para manter os botões com texto branco quando não estiverem selecionados */
+  .landing-page .admin-button:not(.selected),
+  .landing-page .agende-button:not(.selected) {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  
+    /* Botão "Seja um administrador" */
+  #userButton {
+    background-color: #007bff; /* Cor azul desejada */
+    color: #fff; /* Texto branco */
+    border: none; /* Remover borda */
+  }
+  
+  #userButton:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse (pode ser alterada se desejar) */
+  }
+  
+  #adminButton {
+    background-color: #007bff; /* Cor azul desejada */
+    color: #fff; /* Texto branco */
+    border: none; /* Remover borda */
+  }
+  
+  #adminButton:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse (pode ser alterada se desejar) */
+  }
+  
+  .blank-div {
+    height: 100px; /* Defina a altura desejada para a div em branco */
+    background-image: url('vagas-de-estacionamento.jpg'); /* Adicione a imagem desejada */
+    background-size: cover; /* Ajuste para cobrir toda a área da div */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+  }
+  
+  .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100% - 60px); /* Ajuste o valor de acordo com o seu layout */
+  }
+  
+  .modal-content {
+    margin: auto;
+  }
+  
+  .same-size-button {
+      width: 150px; /* Defina o tamanho desejado para os botões */
+    }
+  
+  @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+  
+        .landing-page {
+          padding: 16px 8px;
+          max-width: 100%;
+          border-radius: 5px;
+          border: 1px solid #000000;
+        }
+      }
+  
+      .nova-div {
+    background-color: #ffffff; /* Fundo branco */
+    color: #000000; /* Texto preto */
+    padding: 20px; /* Adicione espaçamento interno conforme necessário */
+  }
+  
+      @media (max-width: 576px) {
+    .navbar-nav .btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .placeholder-wrapper {
+      width: 100%; /* Ajuste a largura para 100% em telas menores */
+    }
+  }
+  
+  .placeholder-wrapper {
+    width: 45%; /* Ajuste a largura das imagens de acordo com o desejado */
+    margin: 10px; /* Adicione margem entre as imagens */
+  }
+  
+  .placeholder-image {
+    width: 100%; /* Garante que a imagem ocupe 100% da largura do wrapper */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+  
+  .admin-button i {
+    display: block; /* Faz o ícone ocupar uma linha separada */
+    margin-bottom: 8px; /* Espaço entre o ícone e o texto do botão */
+    font-size: 20px; /* Tamanho do ícone */
+  }
+  
+  .admin-button span {
+    display: block;
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  /* Alteração no botão para conter o ícone e o texto em linhas separadas */
+  .admin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o ícone e o texto horizontalmente */
+  }
+  
+  .agende-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .agende-button i {
+    font-size: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+    margin-bottom: 8px; /* Espaço entre o ícone e o texto */
+  }
+  
+  .contact-icon i {
+    font-size: 30px; /* Definindo o tamanho dos ícones do footer como 30px */
+  }
+  
+  .carousel {
+    margin: 0 auto; /* Isso centraliza o carrossel na horizontal */
+    /* Adicione outras propriedades de estilo conforme necessário */
+  }
+  

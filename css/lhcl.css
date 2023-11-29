@@ -1,0 +1,115 @@
+
+
+
+
+
+
+body{
+
+  background: #1B213B;
+  color: #777;
+  font-family: Montserrat, Arial, sans-serif;
+
+}
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  
+ 
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+ 
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+
+  .text-box {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #e6e1e1;
+    border: 1px solid #000000;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    transition: all 2s ease-in-out;
+    transition: all 0.5s linear;
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  .text-box {
+    font-family: "Arial", sans-serif;
+  }
+  .text-box {
+    font-size: 30px;
+  }
+  .nav {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+  }
+  .nav {
+    color: #ff0000;
+  }
+  .nav {
+    font-size: 20px;
+  }
+
+  .button-side{
+    margin: 5px;
+    border-radius: 3px;
+  }
+
+
+
