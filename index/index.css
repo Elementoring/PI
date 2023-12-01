@@ -1,0 +1,361 @@
+/* Adicionado reset de margin e padding para garantir consistência em diferentes navegadores */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Adicionado box-sizing para melhorar o modelo de caixa */
+}
+
+body {
+  position: relative;
+  font-family: 'Calibri', sans-serif; /* Adicionado aspas simples para a fonte */
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background-color: #f2f2f2; /* Adicionado cor de fundo */
+  color: #333; /* Adicionada cor de texto padrão */
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed; /* Alterado para posição fixa para cobrir a tela inteira */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+body::before {
+  background-image: url('2.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.8;
+}
+
+body::after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0 auto;
+
+  border-radius: 10px; /* Adicionado borda arredondada */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adicionado sombra */
+}
+
+.landing-page {
+  text-align: left;
+  background-color: #ffffff;
+  padding: 24px 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  max-width: 572px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.landing-buttons button {
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.landing-buttons button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+}
+
+header,
+footer {
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #343a40;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+  font-family: 'Calibri', sans-serif;
+}
+
+.container h2 {
+  font-size: 40px;
+}
+
+.landing-page button {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.landing-page .btn {
+  background-color: #000;
+  color: #fff;
+}
+
+.landing-page .btn:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+  color: #000;
+}
+
+.landing-page .btn.active {
+  background-color: transparent !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+.landing-page .admin-button.selected,
+.landing-page .agende-button.selected {
+  background-color: #e0e0e0;
+  color: #000;
+  border: 2px solid black;
+}
+
+.landing-page .admin-button:not(.selected),
+.landing-page .agende-button:not(.selected) {
+  background-color: #000;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#userButton,
+#adminButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+#userButton:hover,
+#adminButton:hover {
+  background-color: #0056b3;
+}
+
+.blank-div {
+  height: 100px;
+  background-image: url('vagas-de-estacionamento.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100% - 60px);
+}
+
+.modal-content {
+  margin: auto;
+}
+
+.same-size-button {
+  width: 150px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .landing-page {
+    padding: 16px 8px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid #000000;
+  }
+}
+
+.nova-div {
+  color: #000000;
+  padding: 20px;
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.placeholder-wrapper {
+  width: 45%;
+  margin: 10px;
+}
+
+.placeholder-image {
+  width: 40%;
+  height: auto;
+  margin-top: 30px;
+  margin-left: 110px;
+  margin-bottom: 20px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.admin-button i {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.admin-button span {
+  display: block;
+  text-align: center;
+}
+
+.admin-button,
+.agende-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agende-button i {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.contact-icon i {
+  font-size: 30px;
+}
+
+.carousel {
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  height: 600px;
+  width: 100%; /* Alterado para ocupar 100% da largura do contêiner */
+  margin-bottom: 80px;
+  margin-top: 40px;
+  object-fit: cover; /* Adicionado para garantir que a imagem cubra completamente o contêiner */
+}
+
+/* Adicionado estilo para input e textarea */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Adicionado estilo para formulários */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionado estilo para botão de formulário */
+.form-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Adicionado estilo para botão de formulário em hover */
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Adicionado estilo para o rodapé */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Adicionado estilo para links no rodapé */
+footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Adicionado estilo para links no rodapé em hover */
+footer a:hover {
+  text-decoration: underline;
+}

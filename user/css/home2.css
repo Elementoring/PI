@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Added a fallback font and a modern font */
+}
+
+body {
+    background-color: #f4f4f4; /* Added a light background color for the body */
+}
+
+.meio {
+    text-align: center;
+    padding: 40px 20px; /* Added padding for better spacing */
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Added margin for spacing */
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 40px;
+    border: 2px solid #020202; /* Changed border style */
+    background-color: #fff; /* Added background color */
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0 10px; /* Added padding for better spacing */
+    font-size: 16px;
+    line-height: 40px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.proseguir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn {
+    width: 80%;
+    max-width: 200px;
+    padding: 10px; /* Added padding for better button appearance */
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #000000, #fff, #000000);
+    padding: 40px 20px; /* Added padding for better spacing */
+}
+
+.mapBox {
+    position: relative;
+    height: 400px; /* Adjusted height for better appearance */
+    width: 90%; /* Adjusted width for better appearance */
+    max-width: 100vh;
+    background-color: #000000;
+    border: 3px solid #000000; /* Changed border style */
+    border-radius: 10px; /* Added border-radius for better appearance */
+    overflow: hidden; /* Ensuring the iframe doesn't overflow */
+}
+
+.mapBox iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.h11 {
+    background: #000000;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.texto {
+    text-align: justify;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+.fundo {
+    margin: 20px auto; /* Added margin for better spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5c4c4;
+    padding: 20px;
+    border-radius: 10px; /* Added border-radius for better appearance */
+}
+
+.fundo img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.fundo div {
+    padding-left: 25px;
+}
+
+.fundo div h2 {
+    padding: 10px 0 0 0;
+    border-bottom: 2px solid #263d2e;
+}
+
+.fundo div p {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.btn {
+    width: 100%;
+    max-width: none;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .search-box {
+        width: 90%;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .fundo {
+        padding: 10px;
+    }
+
+    .mapBox {
+        height: 250px; /* Adjusted height for smaller screens */
+    }
+
+    .meio {
+        padding: 20px 10px;
+    }
+}

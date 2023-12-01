@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- Adiciona o Font Awesome -->
+    <style>
+        body {
+    background: #1B213B;
+    color: #777;
+    font-family: Montserrat, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+}
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-right .5s;
+            padding: 20px;
+            margin-right: 250px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .text-box {
+            width: 420px;
+            height: 300px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: #e6e1e1;
+            border: 1px solid #000000;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            border-radius: 25px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        h1, p {
+            color: #000000;
+        }
+
+        .nav {
+            width: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .nav i {
+            color: white;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav.ml-auto a {
+            margin-left: 10px;
+        }
+
+        .button-side {
+    margin: 5px;
+    border-radius: 3px;
+    background: transparent; /* Alterado para um fundo transparente */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    color: black;
+}
+
+        .button-side img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .cloud-balloon {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .balloon-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header, footer {
+        width: 100%;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #343a40;
+      }
+
+      footer p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      footer {
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #343a40;
+    margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+.menu-icon {
+            color: #000; /* Define a cor desejada para o ícone do menu */
+        }
+
+        @keyframes slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.text-box {
+    animation: slide-up 1s ease-in-out;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="home.html">
+            <i class="fas fa-car" style="font-size: 20px;"></i> ParkNow!
+        </a>
+        <button onclick="openNav()" class="button-side">
+            <!-- Substitui a imagem por um ícone do Font Awesome com a cor diretamente especificada -->
+            <i class="fas fa-bars" style="font-size: 30px; color: #fff;"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Conteúdo do menu da barra de navegação aqui -->
+            </ul>
+        </div>
+    </nav>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="admin-dashboard/index.html">Dashboard</a>
+        <a href="admin-demo/index.html">Gerência de vagas</a>
+        <a style="color: red;" href="../../PI 2/index.html">Logout</a>
+    </div>
+
+    <div class="cloud-balloon" id="cloudBalloon">
+        <div class="balloon-content">
+            <p>Iremos mostrar um pequeno tutorial de utilização</p>
+            <button class="skip-button" onclick="skipTutorial()">Pular</button>
+            <button class="next-button" onclick="nextTutorial()">Próximo</button>
+        </div>
+    </div>
+
+    <div class="text-box">
+        <h1>Bem-vindo à tela de administrador!</h1>
+        <p>Aqui você irá controlar todos os processos e atividades dentro do seu estabelecimento.</p>
+        <p>Clique no botão branco no canto superior direito para ter acesso às funcionalidades.</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-box">
+                    <div class="card-body">
+                        <h5 class="card-title">Sobre o Sistema</h5>
+                        <p class="card-text">
+                            O sistema ParkNow! oferece uma solução completa para o gerenciamento eficiente do estacionamento do seu estabelecimento.
+                            Desde o controle de reservas até relatórios detalhados, proporcionamos as ferramentas necessárias para garantir uma operação suave e organizada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-box">
+                    <div class="card-body">
+                        <h5 class="card-title">Recursos Principais</h5>
+                        <p class="card-text"> <!-- Substituído ul e li por p -->
+                            - Dashboard intuitivo para monitoramento em tempo real.<br>
+                            - Gerenciamento eficaz de reservas de vagas.<br>
+                            - Relatórios mensais para análise de desempenho.<br>
+                            - Configurações personalizadas para atender às suas necessidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main"></div>
+
+    <footer class="bg-dark text-light mt-auto" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+        <div>&copy; 2023 ParkNow!</div>
+        <div id="contact-icons" style="display: flex; gap: 20px;">
+          <a href="tel:+551233112083" class="contact-icon" target="_blank"><i class="fas fa-phone"></i></a>
+          <a href="mailto:estacionamentobomjesus374@gmail.com" class="contact-icon" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/estacionamentobomjesus/?locale=pt_BR" class="contact-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <div>
+          <p>
+            Endereço: <a href="https://www.google.com/maps/place/FATEC+Guaratinguet%C3%A1+-+Prof.+Jo%C3%A3o+Mod/@-22.7860667,-45.1840057,17z/data=!3m1!4b1!4m6!3m5!1s0x94ccc5d1e37da1df:0xd5616eb015f7fde!8m2!3d-22.7860717!4d-45.1814308!16s%2Fg%2F121tylqb?entry=ttu" target="_blank">
+              Av. Prof. João Rodrigues, 1501 - Jardim Esperança, Guaratinguetá - SP
+            </a>
+          </p>
+        </div>
+        <span id="clock"></span>
+      </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("cloudBalloon").style.display = "none";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        document.querySelector(".text-box").classList.add("surgida");
+
+        function startFunction() {
+            document.getElementById("cloudBalloon").style.display = "flex";
+        }
+
+        function skipTutorial() {
+            document.getElementById("cloudBalloon").style.display = "none";
+        }
+
+        function nextTutorial() {
+            document.getElementById("cloudBalloon").style.display = "none";
+        }
+
+        function updateClock() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  const currentTime = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('clock').innerText = currentTime;
+}
+
+// Atualize o relógio a cada segundo
+setInterval(updateClock, 1000);
+
+// Atualize o relógio imediatamente ao carregar a página
+updateClock();
+
+document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+        var scrollPosition = window.scrollY;
+        var textBox = document.querySelector('.text-box');
+
+        if (scrollPosition > 100) {
+            textBox.classList.add('scrolled');
+        } else {
+            textBox.classList.remove('scrolled');
+        }
+    });
+});
+    </script>
+</body>
+
+</html>

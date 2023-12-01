@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adicionando Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Adicionando Ícone (por exemplo, Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <!-- Adicionando seu arquivo CSS -->
+  <link rel="stylesheet" href="index/index.css">
+  <title>Login e Cadastro</title>
+</head>
+
+<body>
+  <header class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><i class="fas fa-car"></i> ParkNow!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end flex-md-row" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button class="btn btn-success mr-3 same-size-button" data-toggle="modal" data-target="#loginForm">Fazer
+              Login</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary same-size-button" data-toggle="modal"
+              data-target="#registerForm">Cadastre-se</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mx-auto">
+    <section class="landing-page text-center">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <button class="btn btn-block admin-button" onclick="changeToWelcome()">
+            <i class="fas fa-user-tie"></i> Administre seu estabelecimento
+          </button>
+        </div>
+        <div class="col-md-6 mb-3 text-right">
+          <button class="btn btn-block agende-button" onclick="changeToAgende()">
+            <i class="fas fa-user"></i> Reserve sua vaga
+          </button>
+        </div>
+        <div class="col-md-12">
+          <h2 id="welcomeText" class="display-4 mb-4 text-center px-2 mx-2">Tenha seu insight completo sobre a gestão
+            de seu estacionamento através de um sistema único</h2>
+          <button id="adminButton" class="btn btn-block btn-primary admin-button" style="display: none;"
+            onclick="openAdminModal()">Seja um administrador</button>
+          <button id="userButton" class="btn btn-block btn-primary user-button" style="display: none;">Ingresse como
+            usuário</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal de Login -->
+<div id="loginForm" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Fazer Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="registration-links">
+          <p><a href="#" data-toggle="modal" data-target="#userLoginModal">Entre como Usuário</a></p>
+          <p><a href="#" data-toggle="modal" data-target="#adminLoginModal">Entre como Administrador</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dentro do Modal de Login para Usuário -->
+<div id="userLoginModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login de Usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário para o login do usuário -->
+        <form id="userLoginForm">
+          <div class="form-group">
+            <label for="loginUsername">Nome de Usuário</label>
+            <input type="text" class="form-control" id="loginUsername">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Senha</label>
+            <input type="password" class="form-control" id="loginPassword">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loginUser('user')">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dentro do Modal de Login para Administrador -->
+<div id="adminLoginModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login de Administrador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário para o login do administrador -->
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="loginAdminUsername">Nome de Usuário</label>
+            <input type="text" class="form-control" id="loginAdminUsername">
+          </div>
+          <div class="form-group">
+            <label for="loginAdminPassword">Senha</label>
+            <input type="password" class="form-control" id="loginAdminPassword">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="loginUser('admin')">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal de Cadastro -->
+<div id="registerForm" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastre-se</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="registration-links">
+          <p><a href="#" data-toggle="modal" data-target="#userRegisterModal">Cadastro de Usuário</a></p>
+          <!-- Texto de link para "Cadastro de Administrador" -->
+          <p><a href="#" data-toggle="modal" data-target="#adminRegisterModal">Cadastro de Administrador</a></p>
+        </div>
+        <form>
+          <!-- Campos de entrada para o cadastro -->
+          <!-- Botão de submissão do formulário -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Novo Modal para Cadastro de Usuário -->
+<div id="userRegisterModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastro de Usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário para o cadastro do usuário -->
+        <form id="userRegisterForm">
+          <div class="form-group">
+            <label for="newUserUsername">Nome de Usuário</label>
+            <input type="text" class="form-control" id="newUserUsername">
+          </div>
+          <div class="form-group">
+            <label for="newUserPassword">Senha</label>
+            <input type="password" class="form-control" id="newUserPassword">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="registerUser()">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Novo Modal para Cadastro de Administrador -->
+<div id="adminRegisterModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cadastro de Administrador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário para o cadastro do administrador -->
+        <form id="adminRegisterForm">
+          <div class="form-group">
+            <label for="newAdminUsername">Nome de Usuário</label>
+            <input type="text" class="form-control" id="newAdminUsername">
+          </div>
+          <div class="form-group">
+            <label for="newAdminPassword">Senha</label>
+            <input type="password" class="form-control" id="newAdminPassword">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="registerAdmin()">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <section class="landing-page">
+    <div class="row">
+      <div class="col-md-12">
+        <p>A empresa mais completa no quesito segurança, acessibilidade e eficiencia da região</p>
+        <div class="blank-div"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <div class="d-flex flex-wrap justify-content-center">
+    <!-- Destaque 1 -->
+    <div class="col-12 col-md-6 col-lg-3 mb-3 placeholder-wrapper">
+      <img src="img/medalha.jpg" alt="Destaque 1" class="placeholder-image" style="border-radius: 180px;">
+      <p style="color: aliceblue;">Reconhecimento 24 horas! Recebemos prêmios por nosso serviço excepcional e atendimento de qualidade. Venha para ParkNow e experimente o melhor!</p>
+    </div>
+    <!-- Destaque 2 -->
+    <div class="col-12 col-md-6 col-lg-3 mb-3 placeholder-wrapper">
+      <img src="img/relogio 2.png" alt="Destaque 2" class="placeholder-image" style="border-radius: 180px;">
+      <p style="color: aliceblue;">Tempo é valioso! Oferecemos serviço 24 horas com atendimento rápido e eficiente para maximizar sua experiência. Venha para ParkNow e aproveite seu tempo ao máximo!</p>
+    </div>
+    <!-- Destaque 3 -->
+    <div class="col-12 col-md-6 col-lg-3 mb-3 placeholder-wrapper">
+      <img src="img/segurança.jpg" alt="Destaque 3" class="placeholder-image" style="border-radius: 180px;">
+      <p style="color: aliceblue;">Segurança em primeiro lugar! Nosso serviço 24 horas é desenvolvido para garantir sua segurança e proporcionar uma experiência tranquila. Venha para ParkNow e sinta-se seguro!</p>
+    </div>
+  </div>
+</div>
+ <!-- Carrossel com imagens de mesma largura e altura -->
+<div class="d-flex justify-content-center">
+  <div id="imageCarousel" class="carousel slide mx-auto" data-ride="carousel" style="max-width: 80%;">
+    <ol class="carousel-indicators">
+      <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#imageCarousel" data-slide-to="1"></li>
+      <li data-target="#imageCarousel" data-slide-to="2"></li>
+      <!-- Adicione quantos placeholders forem necessários -->
+    </ol>
+    <div class="carousel-inner">
+      <!-- Imagem 1 -->
+      <div class="carousel-item active">
+        <img src="img/6.jpg" class="d-block w-100" alt="Imagem 1">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+
+      <!-- Imagem 2 -->
+      <div class="carousel-item">
+        <img src="img/5.jpg" class="d-block w-100" alt="Imagem 2">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+
+      <!-- Imagem 3 -->
+      <div class="carousel-item">
+        <img src="img/3.jpg" class="d-block w-100" alt="Imagem 3">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      <!-- Adicione mais imagens conforme necessário -->
+    </div>
+    <!-- Controles do carrossel -->
+    <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Próximo</span>
+    </a>
+  </div>
+</div>
+<footer class="bg-dark text-light mt-auto" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+  <div>&copy; 2023 ParkNow!</div>
+  <div id="contact-icons" style="display: flex; gap: 20px;">
+    <a href="tel:+551233112083" class="contact-icon" target="_blank"><i class="fas fa-phone"></i></a>
+    <a href="mailto:estacionamentobomjesus374@gmail.com" class="contact-icon" target="_blank"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/estacionamentobomjesus/?locale=pt_BR" class="contact-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+  <div>
+    <p>
+      Endereço: <a href="https://www.google.com/maps/place/FATEC+Guaratinguet%C3%A1+-+Prof.+Jo%C3%A3o+Mod/@-22.7860667,-45.1840057,17z/data=!3m1!4b1!4m6!3m5!1s0x94ccc5d1e37da1df:0xd5616eb015f7fde!8m2!3d-22.7860717!4d-45.1814308!16s%2Fg%2F121tylqb?entry=ttu" target="_blank">
+        Av. Prof. João Rodrigues, 1501 - Jardim Esperança, Guaratinguetá - SP
+      </a>
+    </p>
+  </div>
+  <span id="clock"></span>
+</footer>
+
+  
+
+  <div class="popup-background" style="display: none;"></div>
+
+
+  <!-- Adicionando Bootstrap JS (popper.js e jQuery necessários) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+     const adminUsers = JSON.parse(localStorage.getItem('adminUsers')) || [
+    { username: 'admin1', password: 'admin123' },
+    { username: 'admin2', password: 'admin456' }
+  ];
+
+  const regularUsers = JSON.parse(localStorage.getItem('regularUsers')) || [
+    { username: 'user1', password: 'user123' },
+    { username: 'user2', password: 'user456' }
+  ];
+
+  function saveUsersToLocalStorage() {
+    localStorage.setItem('adminUsers', JSON.stringify(adminUsers));
+    localStorage.setItem('regularUsers', JSON.stringify(regularUsers));
+  }
+
+  function loginUser(userType) {
+    const username = document.getElementById(`login${userType === 'admin' ? 'Admin' : ''}Username`).value;
+    const password = document.getElementById(`login${userType === 'admin' ? 'Admin' : ''}Password`).value;
+
+    let userArray = userType === 'admin' ? adminUsers : regularUsers;
+    let user = userArray.find(user => user.username === username && user.password === password);
+
+    if (user) {
+      alert(`Login bem-sucedido como ${userType}!`);
+      hidePopup(`${userType === 'admin' ? 'admin' : 'user'}LoginModal`);
+      redirectToWelcomePage();
+    } else {
+      alert(`Usuário ou senha ${userType === 'admin' ? 'de administrador' : 'incorretos'}.`);
+    }
+  }
+
+  function registerUser() {
+    const newUsername = document.getElementById('newUserUsername').value;
+    const newPassword = document.getElementById('newUserPassword').value;
+
+    if (newUsername === '' || newPassword === '') {
+      alert('Por favor, preencha todos os campos.');
+    } else {
+      regularUsers.push({ username: newUsername, password: newPassword });
+      alert('Cadastro de usuário realizado com sucesso!');
+      $('#userRegisterModal').modal('hide');
+      saveUsersToLocalStorage();
+    }
+  }
+
+  function registerAdmin() {
+    const newAdminUsername = document.getElementById('newAdminUsername').value;
+    const newAdminPassword = document.getElementById('newAdminPassword').value;
+
+    if (newAdminUsername === '' || newAdminPassword === '') {
+      alert('Por favor, preencha todos os campos.');
+    } else {
+      adminUsers.push({ username: newAdminUsername, password: newAdminPassword });
+      alert('Cadastro de administrador realizado com sucesso!');
+      $('#adminRegisterModal').modal('hide');
+      saveUsersToLocalStorage();
+    }
+  }
+
+function changeToWelcome() {
+  const loremIpsum = "Tenha seu insight completo sobre a gestão de seu estacionamento através de um sistema única";
+
+  const adminButton = document.getElementById('adminButton');
+  const welcomeText = document.getElementById('welcomeText');
+  const userButton = document.getElementById('userButton');
+
+  welcomeText.innerText = loremIpsum.substr(0, 100); // Substitui por um Lorem Ipsum de 100 caracteres
+
+  adminButton.style.display = 'block'; // Mostrar o botão "Seja um administrador"
+  userButton.style.display = 'none'; // Ocultar o botão "Ingresse como usuário"
+
+  // Adicionar a classe 'selected' ao botão de administrador e remover a classe 'selected' do botão de reserva
+  const adminButtonElement = document.querySelector('.landing-page button:nth-child(1)');
+  const reserveButtonElement = document.querySelector('.landing-page button:nth-child(2)');
+  adminButtonElement.classList.add('selected');
+  reserveButtonElement.classList.remove('selected');
+}
+
+function changeToAgende() {
+  const loremIpsum = "Reserve já a sua vaga e evite problemas para encontrar depois";
+
+  const welcomeText = document.getElementById('welcomeText');
+  const adminButton = document.getElementById('adminButton');
+  const userButton = document.getElementById('userButton');
+
+  welcomeText.innerText = loremIpsum; // Define o texto para o Lorem Ipsum
+
+  adminButton.style.display = 'none'; // Oculta o botão "Seja um administrador"
+  userButton.style.display = 'block'; // Exibe o botão "Ingresse como usuário"
+}
+
+// Adicione um evento de clique ao botão "Reserve sua vaga"
+const reserveButton = document.querySelector('.landing-page button:nth-child(2)');
+reserveButton.addEventListener('click', function() {
+  // Verifique se o botão "Reserve sua vaga" está selecionado
+  if (reserveButton.classList.contains('selected')) {
+    changeToAgende(); // Chama a função para exibir o botão "Ingresse como usuário"
+  }
+});
+
+// Selecione todos os botões dentro da landing-page
+const buttons = document.querySelectorAll('.landing-page .btn');
+
+// Adicione um evento de clique a cada botão
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Remova a classe 'selected' de todos os botões
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    // Adicione a classe 'selected' apenas ao botão clicado
+    this.classList.add('selected');
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Selecionar o botão "Admnistre seu estabelecimento"
+  const adminButton = document.querySelector('.landing-page button:nth-child(1)');
+  const reserveButton = document.querySelector('.landing-page button:nth-child(2)');
+
+  // Adicionar a classe 'selected' ao botão
+  adminButton.classList.add('selected');
+
+  // Verificar se o botão "Reserve sua vaga" está selecionado
+  if (reserveButton.classList.contains('selected')) {
+    changeToAgende(); // Chama a função para exibir o botão "Ingresse como usuário"
+  } else {
+    changeToWelcome(); // Chama a função para exibir o botão "Seja um administrador"
+  }
+
+  // Verificar se o texto de boas-vindas já está configurado como "Bem-vindo"
+  const welcomeText = document.getElementById('welcomeText');
+  const adminButtonElement = document.getElementById('adminButton');
+  if (welcomeText.innerText === 'Tenha seu insight completo sobre a gestão de seu estacionamento através de um sistema única') {
+    adminButtonElement.style.display = 'block'; // Mostrar o botão "Seja um administrador"
+  }
+});
+
+  function openAdminModal() {
+  $('#adminRegisterModal').modal('show'); // Abre o modal correspondente ao ID "adminRegisterModal"
+}
+
+function loginUser(userType) {
+    let username, password;
+
+    if (userType === 'user') {
+      username = document.getElementById('loginUsername').value;
+      password = document.getElementById('loginPassword').value;
+
+      const user = regularUsers.find(user => user.username === username && user.password === password);
+
+      if (user) {
+        alert('Login bem-sucedido como usuário!');
+        // Esconder o modal de login de usuário
+        $('#userLoginModal').modal('hide');
+        redirectToUserPage(); // Redirecionar para a página do usuário
+      } else {
+        alert('Usuário ou senha incorretos.');
+      }
+    } else if (userType === 'admin') {
+      username = document.getElementById('loginAdminUsername').value;
+      password = document.getElementById('loginAdminPassword').value;
+
+      const admin = adminUsers.find(admin => admin.username === username && admin.password === password);
+
+      if (admin) {
+        alert('Login bem-sucedido como administrador!');
+        // Esconder o modal de login de administrador
+        $('#adminLoginModal').modal('hide');
+        redirectToAdminPage(); // Redirecionar para a página do administrador
+      } else {
+        alert('Usuário ou senha de administrador incorretos.');
+      }
+    }
+  }
+
+  function redirectToUserPage() {
+    // Lógica para redirecionar para a página do usuário após o login
+    // Pode ser uma nova página ou outra ação específica
+    window.location.href = 'user/home.html';
+  }
+
+  function redirectToAdminPage() {
+    // Redirecionar para a página home.html após o login como administrador
+    window.location.href = 'home.html';
+  }
+
+  // Adicionar um evento de clique ao botão "Ingresse como usuário"
+document.getElementById('userButton').addEventListener('click', function() {
+  // Mostrar o modal de cadastro de usuário ao clicar no botão "Ingresse como usuário"
+  $('#userRegisterModal').modal('show');
+});
+
+
+  function updateClock() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  const currentTime = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('clock').innerText = currentTime;
+}
+
+// Atualize o relógio a cada segundo
+setInterval(updateClock, 1000);
+
+// Atualize o relógio imediatamente ao carregar a página
+updateClock();
+
+// JavaScript to initialize the carousel and set the interval
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the carousel element
+    var myCarousel = document.getElementById('imageCarousel');
+
+    // Initialize the Bootstrap carousel
+    var carousel = new bootstrap.Carousel(myCarousel, {
+      interval: 3000, // Set the interval to 2 seconds (2000 milliseconds)
+      wrap: true // Optional: Set to true to loop the carousel
+    });
+  });
+  </script>
+  
+</body>
+</html>

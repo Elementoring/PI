@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Added a fallback font and a modern font */
+}
+
+body {
+    background-color: #f8f9fa; /* Changed body background color for a lighter look */
+}
+
+/* Centered content in the middle of the page with a subtle shadow effect */
+.meio {
+    text-align: center;
+    padding: 40px 20px; /* Added padding for better spacing */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Stylish search box with a subtle shadow effect */
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Added margin for spacing */
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 40px;
+    border: 2px solid #020202; /* Changed border style */
+    background-color: #fff; /* Added background color */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0 15px; /* Adjusted padding for better spacing */
+    font-size: 16px;
+    line-height: 40px;
+    width: 100%;
+}
+
+/* Styled button with hover effect and a subtle shadow effect */
+.proseguir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn {
+    width: 100%; /* Adjusted width for better appearance */
+    max-width: 250px; /* Set a maximum width for larger screens */
+    cursor: pointer; /* Added pointer cursor for better user experience */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.btn:hover {
+    background-color: #020202; /* Darkened background on hover */
+    color: #fff; /* Light text on hover for better contrast */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Gradient background for the map section with a subtle shadow effect */
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #000000, #fff, #000000);
+    padding: 40px 20px; /* Added padding for better spacing */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Stylish map container with border radius and a subtle shadow effect */
+.mapBox {
+    position: relative;
+    height: 400px; /* Adjusted height for better appearance */
+    width: 90%; /* Adjusted width for better appearance */
+    max-width: 100vh;
+    background-color: #fff;
+    border: 3px solid #000000; /* Changed border style */
+    border-radius: 10px; /* Added border-radius for better appearance */
+    overflow: hidden; /* Ensuring the iframe doesn't overflow */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.mapBox iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Dark background with light text for the heading */
+.h11 {
+    background: #000000;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Justified text with padding for better spacing */
+.texto {
+    text-align: justify;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+/* Centered content in a stylish container with a subtle shadow effect */
+.fundo {
+    margin: 20px auto; /* Added margin for better spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c5c4c4;
+    padding: 20px;
+    border-radius: 10px; /* Added border-radius for better appearance */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Circular image with border radius */
+.fundo img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/* Stylish container for text with padding and border bottom */
+.fundo div {
+    padding-left: 25px;
+}
+
+.fundo div h2 {
+    padding: 10px 0 0 0;
+    border-bottom: 2px solid #263d2e;
+}
+
+/* Spaced out justified text */
+.fundo div p {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .mapBox {
+        max-width: 80vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .search-box {
+        width: 90%;
+    }
+
+    .mapBox {
+        max-width: 90vh;
+    }
+
+    .fundo img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-box {
+        width: 80%;
+    }
+
+    .mapBox {
+        max-width: 100%;
+    }
+
+    .fundo img {
+        width: 80%;
+    }
+}

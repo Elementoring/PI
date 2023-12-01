@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Improved and added responsiveness to sessao01 */
+.sessao01 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sessao01 img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.sessao01 div {
+    padding-left: 25px;
+    flex: 1;
+    max-width: 600px;
+}
+
+.sessao01 div h2 {
+    padding: 10px 0 0 0;
+    border-bottom: 2px solid #263d2e;
+}
+
+.sessao01 div p {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.h11 {
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+/* Improved styling and added padding to a3 */
+.a3 {
+    text-align: center;
+    border-left: #000 solid 2px;
+    border-right: #000 solid 2px;
+    padding: 20px;
+}
+
+.centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sessao03 {
+    margin: 30px;
+}
+
+/* Improved responsiveness and alignment for sessaoimg3 */
+.sessaoimg3 {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imgr {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Improved styling and added padding to A22 */
+.A22 {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Improved alignment and added margin to proseguir */
+.proseguir {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 20px;
+}
